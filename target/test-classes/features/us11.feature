@@ -1,5 +1,5 @@
-@doctor_appointments
-Feature: Doctor_Appointments_Visible
+@us_11
+Feature: US_11
 
   Background: Sign In Medunna
     Given user is on "https://medunna.com/" page
@@ -35,3 +35,10 @@ Feature: Doctor_Appointments_Visible
     And assert that doctor can see physician
     And assert that doctor can see patient
     And close the application
+
+
+
+  @aDataBaseTest
+  Scenario: US11_TC05_DB_Test
+    Given user connects to the Medunna database
+    When user sends query

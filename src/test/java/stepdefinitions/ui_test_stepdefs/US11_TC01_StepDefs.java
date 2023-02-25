@@ -66,7 +66,6 @@ public class US11_TC01_StepDefs {
     }
     @Then("assert that appointment list is visible")
     public void assert_that_appointment_list_is_visible() {
-        // String patientIdList = doctorsPage.patientIdList.getText();
         assertTrue(doctorsPage.patientId.isDisplayed());
 
         ReusableMethods.waitFor(5);
