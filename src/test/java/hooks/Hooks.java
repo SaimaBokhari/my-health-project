@@ -50,8 +50,8 @@ public class Hooks {
         System.out.println("Run After Only Smoke Test Scenario");
     }
 
-    @Before("@TC01_Api")
-    public void beforeApi(){  // This method will run before @TC01_Api Test
+    @Before("@us11_api_test1")
+    public void beforeApi(){  // This method will run before Api TestS
         medunnaSetUp();
 
     }
