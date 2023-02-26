@@ -3,9 +3,12 @@ package hooks;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
+
+import static base_url.MedunnaBaseUrl.medunnaSetUp;
 
 public class Hooks {
     /*
@@ -47,6 +50,11 @@ public class Hooks {
         System.out.println("Run After Only Smoke Test Scenario");
     }
 
+    @Before("@TC01_Api")
+    public void beforeApi(){  // This method will run before @TC01_Api Test
+        medunnaSetUp();
+
+    }
 
 }
 

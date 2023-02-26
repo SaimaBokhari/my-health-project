@@ -1,37 +1,45 @@
 package stepdefinitions.api_test_stepdefs;
 
-import io.cucumber.java.en.*;
-import io.restassured.builder.RequestSpecBuilder;
+import com.github.javafaker.Faker;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
+import pojos.Room;
 
+import static base_url.MedunnaBaseUrl.spec;
 import static io.restassured.RestAssured.given;
-import static utilities.MedunnaAuthentication.generateToken;
+import static org.junit.Assert.assertEquals;
 
 public class US11_Api_StepDefs {
     Response response;
-    RequestSpecification spec;
 
-    @Given("user sends GET request to {string}")
-    public void user_sends_get_request_to(String endPoint) {
-        spec = new RequestSpecBuilder().setBaseUri("https://medunna.com/api").build();
-        spec.pathParam("first",  "appointments");
+    @Given("doctor sends GET request to see appointments")
+    public void doctor_sends_get_request_to_see_appointments() {
+        // Set the URL
+        spec.pathParams("first","api","second","appointments");
 
-        response= given().spec(spec).header("Authorization", "Bearer" + generateToken()).contentType(ContentType.JSON).when().get("/{first}");
+        // Set the expected data / payload
+//        Room room = new Room();
+//        room.setRoomNumber(Faker.instance().number().numberBetween(1000,1000000));
+//        room.setRoomType("TWIN");
+//        room.setStatus(true);
+//        room.setPrice(100);
+//        room.setDescription("Created by API");
+
+        // Send the request and get the response
+        response = given().spec(spec).when().get("/{first}/{second}");
         response.prettyPrint();
 
     }
+
 
     @Then("HTTP status code should be {int}")
     public void http_status_code_should_be(Integer statusCode) {
         response.then().assertThat().statusCode(statusCode);
 
     }
-//    @Then("response body is like that:")
-//    public void response_body_is_like_that() {
-//
-//    }
+
     @Then("assert that user can see appointment list")
     public void assert_that_user_can_see_appointment_list() {
 

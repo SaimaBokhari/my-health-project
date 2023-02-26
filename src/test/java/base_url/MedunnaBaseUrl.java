@@ -2,13 +2,21 @@ package base_url;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
-import org.junit.Before;
+import utilities.ConfigReader;
+
+import static utilities.MedunnaAuthentication.generateToken;
+
 
 public class MedunnaBaseUrl {
-    protected RequestSpecification spec;
+    public static RequestSpecification spec;
 
-    @Before
-    public void setUp(){
-        spec = new RequestSpecBuilder().setBaseUri("https://medunna.com/api").build();
+    public static void medunnaSetUp(){
+            spec = new  RequestSpecBuilder().
+                    addHeader("Authorization","Bearer "+generateToken()).
+                    setBaseUri(ConfigReader.getProperty("medunna_api_url")).
+                    build();
     }
+
 }
+
+// We can put generateToken() in base_url class as well by assigning it in header
