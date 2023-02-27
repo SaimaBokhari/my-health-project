@@ -4,6 +4,8 @@ import io.cucumber.java.en.*;
 import utilities.DBUtils;
 import java.sql.SQLException;
 import java.util.List;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class US11_Db_StepDefs {
@@ -14,7 +16,7 @@ public class US11_Db_StepDefs {
     @Given("doctor sends query to get data of {string} column from {string} table")
     public void doctor_sends_query_to_get_data_of_column_from_table(String columnName, String tableName) {
         String query = "SELECT "+columnName+" FROM "+tableName;
-        System.out.println("query = " + query);
+        //System.out.println("query = " + query);
         DBUtils.executeQuery(query);
     }
     @Given("doctor reads all of the {string} column data")
@@ -37,7 +39,7 @@ public class US11_Db_StepDefs {
         if (appointmentDetails.isEmpty()){
             flag=true;
         }
-        assertTrue(appointmentDetails.size() != 0);
+        assertFalse(flag);
 
     }
 
