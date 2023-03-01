@@ -1,8 +1,10 @@
 package stepdefinitions.ui_test_stepdefs;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebElement;
 import pages.DoctorsPage;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 import static org.junit.Assert.assertTrue;
@@ -68,5 +70,10 @@ public class US11_TC02_StepDefs {
     @Then("assert that doctor can see patient")
     public void assert_that_doctor_can_see_patient() {
         assertTrue(doctorsPage.patient.isDisplayed());
+    }
+
+    @And("close the application")
+    public void closeTheApplication() {
+        Driver.closeDriver();
     }
 }
