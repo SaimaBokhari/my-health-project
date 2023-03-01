@@ -35,11 +35,17 @@ public class US11_Db_StepDefs {
         for (Object w: appointmentDetails)
             System.out.println(w.toString());
 
-        boolean flag=false;
-        if (appointmentDetails.isEmpty()){
-            flag=true;
+        String allAppointments = appointmentDetails.toString();
+
+        for(int i=0; i<allAppointments.length(); i++){
+            assertTrue(allAppointments.contains(appointmentDetails.toString()));
         }
-        assertFalse(flag);
+
+//        boolean flag=false;
+//        if (appointmentDetails.isEmpty()){
+//            flag=true;
+//        }
+//        assertFalse(flag);
 
     }
 

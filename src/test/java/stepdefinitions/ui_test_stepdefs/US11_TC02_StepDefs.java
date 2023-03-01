@@ -72,8 +72,8 @@ public class US11_TC02_StepDefs {
         assertTrue(doctorsPage.patient.isDisplayed());
     }
 
-    @And("close the application")
-    public void closeTheApplication() {
-        Driver.closeDriver();
-    }
+//    @And("close the application")
+//    public void closeTheApplication() {
+//        Driver.closeDriver();
+//    }
 }
