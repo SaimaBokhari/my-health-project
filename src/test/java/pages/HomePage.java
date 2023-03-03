@@ -22,5 +22,15 @@ public class HomePage {
     @FindBy(linkText = "Room")
     public WebElement roomOption;
 
+    @FindBy(xpath = "//*[.='Sign in']")
+    public WebElement signInOptionButton;
+    @FindBy(xpath = "//*[@data-icon='user']")
+    public WebElement menuIcon;
+    @FindBy(id = "username")
+    public WebElement usernameInput;
+    @FindBy(name = "password")
+    public WebElement passwordInput;
+    @FindBy(xpath = "//*[@class='btn btn-primary']")
+    public WebElement signInButton;
 
 }
