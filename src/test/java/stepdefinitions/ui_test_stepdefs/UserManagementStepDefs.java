@@ -38,13 +38,13 @@ public class UserManagementStepDefs {
         Select select =new Select(userMan.userProfiles);
         select.selectByValue(string);
     }
-    @Then("Admin click save button")
-    public void admin_click_save_button() {
-        ReusableMethods.waitFor(2);
-        JSUtils.clickElementByJS(userMan.saveButton);
-        ReusableMethods.waitFor(2);
-
-    }
+//    @Then("Admin click save button")
+//    public void admin_click_save_button() {
+//        ReusableMethods.waitFor(2);
+//        JSUtils.clickElementByJS(userMan.saveButton);
+//        ReusableMethods.waitFor(2);
+//
+//    }
     @Then("Admin verify user registration status Activated")
     public void admin_verify_user_registration_status_activated() {
         List<WebElement> statusList = userMan.statusList;

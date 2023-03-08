@@ -39,6 +39,8 @@ public class RegistrationPage {
 
 
 
+
+
     //*****************
 
     @FindBy(id = "account-menu")

@@ -14,4 +14,5 @@ public class AdminPage {
 
     @FindBy(xpath = "//span[.='User management']")
     public WebElement userManagement;
+
 }
