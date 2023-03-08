@@ -35,4 +35,18 @@ public class UserManagementPage {
 
     @FindBy(xpath = "//span[.='ID']")
     public WebElement sortById;
+
+    // US_21 WebElements
+
+    @FindBy(xpath = "//tbody//td[1]")
+    public List<WebElement> idList;
+
+    @FindBy(xpath = "//tbody//td[2]")
+    public List<WebElement> loginList;
+
+    @FindBy(xpath = "//a[@class='btn btn-info btn-sm']")
+    public List<WebElement> usersViewButtonList;
+
+    @FindBy(xpath = "//a[@class='btn btn-danger btn-sm']")
+    public List<WebElement> usersDeleteButtonList;
 }
