@@ -202,7 +202,7 @@ public class US21_Admin_StepDefs {
 
     @Then("{string} deletes that registered user")
     public void deletes_that_registered_user(String string) {
-        ReusableMethods.waitFor(3);
+        //ReusableMethods.waitFor(4);
         JSUtils.clickElementByJS(userManagementPage.myUserDeleteButton);
     }
     @And("{string} confirms the delete option")
