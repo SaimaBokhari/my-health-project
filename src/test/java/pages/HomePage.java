@@ -33,4 +33,8 @@ public class HomePage {
     @FindBy(xpath = "//*[@class='btn btn-primary']")
     public WebElement signInButton;
 
+    @FindBy(xpath = "//span[.='Physician']")
+    public WebElement physicianOption;
+
+
 }

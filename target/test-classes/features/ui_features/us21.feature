@@ -19,7 +19,7 @@ Feature: US_21 Admin can see and edit registered user's information
     Then Verify the success message appears
 
 
-  @TC_01_happy_path
+  @TC_01_admin_views
   Scenario: Admin can view registered user's information
     When "Admin" sorts the page by ID in Descending order
     And "Admin" clicks on any id from among the registered users
@@ -37,7 +37,7 @@ Feature: US_21 Admin can see and edit registered user's information
     Then verify modifiedBy box contains valid information for that user
     And "Admin" see "profile" of that user
     Then "Admin" goes back to the user management page
- #   And "Admin" sorts the page by ID in Descending order
+    And "Admin" sorts the page by ID in Descending order
     Then "Admin" deletes that registered user
     And "Admin" confirms the delete option
     And "Admin" verify that user is deleted
@@ -60,89 +60,67 @@ Feature: US_21 Admin can see and edit registered user's information
     And "Admin" closes the app
 
 
-  @TC_05_staff_role
-  Scenario: Admin can assign registered user as staff
+  @TC_03_staff_role
+  Scenario: Admin can assign STAFF role to a registered user and delete it as well
     When "Admin" sorts the page by ID in Descending order
     And "Admin" clicks on edit button of any registered user
-    Then "Admin" clicks on Activated checkbox
     And "Admin" selects "ROLE_STAFF" from profiles
-    And "Admin" clicks on save button
+    And "Admin" clicks on Save button
     And "Admin" sorts the page by ID descending order
     Then "Admin" verify user registration status is Activated
     And "Admin" verify user profile as "ROLE_STAFF"
+    And "Admin" sorts the page by ID in Descending order
+    Then "Admin" deletes that registered user
+    And "Admin" confirms the delete option
+    And "Admin" verify that user is deleted
     And "Admin" closes the app
 
-  @TC_06_delete_staff
-  Scenario: Admin can assign delete registered user with profile ROLE-STAFF
-    When "Admin" sorts the page by ID in Descending order
-    And "Admin" clicks on delete button of the user registered as staff
-    Then "Admin" clicks on pop up window
-    And "Admin" confirms delete option
-    Then "Admin" verify staff is deleted
-    And "Admin" closes the app
 
-  @TC_07_admin_role
-  Scenario: Admin can assign registered user as ADMIN
+  @TC_04_admin_role
+  Scenario: Admin can assign ADMIN role to a registered user and delete it as well
     When "Admin" sorts the page by ID in Descending order
     And "Admin" clicks on edit button of any registered user
-    Then "Admin" clicks on Activated checkbox
     And "Admin" selects "ROLE_ADMIN" from profiles
-    And "Admin" clicks on save button
+    And "Admin" clicks on Save button
     And "Admin" sorts the page by ID descending order
     Then "Admin" verify user registration status is Activated
     And "Admin" verify user profile as "ROLE_ADMIN"
+    And "Admin" sorts the page by ID in Descending order
+    Then "Admin" deletes that registered user
+    And "Admin" confirms the delete option
+    And "Admin" verify that user is deleted
     And "Admin" closes the app
 
-  @TC_08_delete_admin
-  Scenario: Admin can assign delete registered user with profile ROLE-ADMIN
-    When "Admin" sorts the page by ID in Descending order
-    And "Admin" clicks on delete button of the user registered as admin
-    Then "Admin" clicks on pop up window
-    And "Admin" confirms delete option
-    Then "Admin" verify admin is deleted
-    And "Admin" closes the app
-
-  @TC_09_user_role
-  Scenario: Admin can assign registered user as user - ROLE-USER
+  @TC_05_user_role
+  Scenario: Admin can assign USER role to a registered user and delete it as well
     When "Admin" sorts the page by ID in Descending order
     And "Admin" clicks on edit button of any registered user
-    Then "Admin" clicks on Activated checkbox
     And "Admin" selects "ROLE_USER" from profiles
-    And "Admin" clicks on save button
+    And "Admin" clicks on Save button
     And "Admin" sorts the page by ID descending order
     Then "Admin" verify user registration status is Activated
     And "Admin" verify user profile as "ROLE_USER"
+    And "Admin" sorts the page by ID in Descending order
+    Then "Admin" deletes that registered user
+    And "Admin" confirms the delete option
+    And "Admin" verify that user is deleted
     And "Admin" closes the app
 
-  @TC_10_delete_user
-  Scenario: Admin can delete registered patient
-    When "Admin" sorts the page by ID in Descending order
-    And "Admin" clicks on delete button of the user registered as user
-    Then "Admin" clicks on pop up window
-    And "Admin" confirms delete option
-    Then "Admin" verify user is deleted
-    And "Admin" closes the app
-
-  @TC_11_physician_role
-  Scenario: Admin can assign registered user as physician
+  @TC_06_patient_role
+  Scenario: Admin can assign PATIENT role to a registered user and delete it as well
     When "Admin" sorts the page by ID in Descending order
     And "Admin" clicks on edit button of any registered user
-    Then "Admin" clicks on Activated checkbox
-    And "Admin" selects "ROLE_PHYSICIAN" from profiles
-    And "Admin" clicks on save button
+    And "Admin" selects "ROLE_PATIENT" from profiles
+    And "Admin" clicks on Save button
     And "Admin" sorts the page by ID descending order
     Then "Admin" verify user registration status is Activated
-    And "Admin" verify user profile as "ROLE_PHYSICIAN"
+    And "Admin" verify user profile as "ROLE_PATIENT"
+    And "Admin" sorts the page by ID in Descending order
+    Then "Admin" deletes that registered user
+    And "Admin" confirms the delete option
+    And "Admin" verify that user is deleted
     And "Admin" closes the app
 
-  @TC_11_delete_physician
-  Scenario: Admin can delete registered physician
-    When "Admin" sorts the page by ID in Descending order
-    And "Admin" clicks on delete button of the user registered as physician
-    Then "Admin" clicks on pop up window
-    And "Admin" confirms delete option
-    Then "Admin" verify physician is deleted
-    And "Admin" closes the app
 
 
 

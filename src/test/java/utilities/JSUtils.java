@@ -6,12 +6,11 @@ import org.openqa.selenium.WebElement;
 public class JSUtils {
     //This method will take two parameter: WebElement, and WebDriver
     //When you pass the element, JS will click on that element
-//    JSUtils.clickElementByJS(driver.findElement(By.id("submit-button")));
     public static void clickElementByJS(WebElement element) {
         JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
         jsexecutor.executeScript("arguments[0].click();", element);
     }
-    //to get the page title with JS
+    //to get the page title with JS -->> not common
     public static String getTitleByJS() {
         JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
         String title = jsexecutor.executeScript("return document.title;").toString();
@@ -28,8 +27,7 @@ public class JSUtils {
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
     //Scroll into view with JS. THIS IS VERY USEFULL
-//    JSUtils.scrollIntoViewJS(driver.findElement(By.id("submit-button")));
-    public static void scrollIntoViewJS(WebElement element) {
+    public static void moveToElementJS(WebElement element) {
         JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
         jsexecutor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
@@ -37,7 +35,7 @@ public class JSUtils {
         JavascriptExecutor javascriptExecutor = ((JavascriptExecutor) Driver.getDriver());
         javascriptExecutor.executeScript("arguments[0].style.backgroundColor = '" + color + "'", element);
         try {
-            Thread.sleep(300);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -50,7 +48,7 @@ public class JSUtils {
             changeColor(bgColor, element);
         }
     }
-    //this will enerate an alert when needed
+    //this will generate an alert when  -->> not common
     public static void generateAlert(String message) throws InterruptedException {
         JavascriptExecutor javascriptExecutor = ((JavascriptExecutor) Driver.getDriver());
         javascriptExecutor.executeScript("alert('" + message + "')");
@@ -58,7 +56,7 @@ public class JSUtils {
     }
     /*
      * executes the given JavaScript command on given web element
-     */
+     */ //This is more dynamic but not common, here we need to pass the Javascript command.
     public static void executeJScommand(WebElement element, String command) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript(command, element);
@@ -93,4 +91,18 @@ public class JSUtils {
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
         js.executeScript("arguments[0].style.border='"+borderStyle+"'",element);
     }
+
+    public static String getValueInStringByJS(String idOfElement){
+        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
+        String value=js.executeScript("return document.getElementById('"+idOfElement+"').value").toString();
+        return value;
+    }
+
+    //Scroll into view with JS. THIS IS VERY USEFULL
+//    JSUtils.scrollIntoViewJS(driver.findElement(By.id("submit-button")));
+    public static void scrollIntoViewJS(WebElement element) {
+        JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
+        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
 }
