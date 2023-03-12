@@ -1,3 +1,4 @@
+@US_21
 Feature: US_21 Admin can see and edit registered user's information
 
   Background:

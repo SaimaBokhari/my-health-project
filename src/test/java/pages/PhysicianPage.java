@@ -95,8 +95,11 @@ public class PhysicianPage {
     @FindBy(xpath = "//div[@class='info jhi-item-count']/span")
     public WebElement physicianCount;
 
+    @FindBy(id = "entity-menu")
+    public WebElement myPagesDropDown;
 
-
+    @FindBy(linkText = "My Appointments")
+    public WebElement myAppointment;
 
 
 }

@@ -177,11 +177,11 @@ public class PhysicianShouldSeeTestStepDefs {
         ReusableMethods.waitFor(2);
         JSUtils.clickElementByJS(physicianInfoPage.saveButton);
     }
-    @When("physician click on MyInpatients")
-    public void physician_click_on_my_inpatients() {
-        ReusableMethods.waitFor(6);
-        physicianPage.myInpatients.click();
-    }
+//    @When("physician click on MyInpatients")
+//    public void physician_click_on_my_inpatients() {
+//        ReusableMethods.waitFor(6);
+//        physicianPage.myInpatients.click();
+//    }
     @When("verify Inpatient Appointment number is visible on the page")
     public void verify_inpatient_appointment_number_is_visible_on_the_page() {
         ReusableMethods.waitFor(2);

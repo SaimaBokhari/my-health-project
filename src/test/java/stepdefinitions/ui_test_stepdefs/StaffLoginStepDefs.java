@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import pages.StaffLoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class StaffLoginStepDefs {
 
@@ -21,6 +22,7 @@ public class StaffLoginStepDefs {
     }
     @When("click on Sign In option")
     public void click_on_sign_in_option() {
+        ReusableMethods.waitFor(2);
         staffLoginPage.signInOption.click();
     }
 
@@ -41,6 +43,7 @@ public class StaffLoginStepDefs {
 
     @When("click on Sign In submit button")
     public void click_on_sign_in_submit_button() {
+        ReusableMethods.waitFor(2);
         staffLoginPage.signInSubmitButton.click();
     }
 

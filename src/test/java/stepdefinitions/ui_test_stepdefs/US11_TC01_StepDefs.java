@@ -24,15 +24,10 @@ public class US11_TC01_StepDefs {
         Driver.getDriver().get(ConfigReader.getProperty("app_url"));
 
     }
-    @When("click on user icon")
-    public void click_on_user_icon() {
-        homePage.userIcon.click();
-
-    }
-    @When("click on Sign In option")
-    public void click_on_sign_in_option() {
-        homePage.signInOption.click();
-    }
+//    @When("click on Sign In option")
+//    public void click_on_sign_in_option() {
+//        homePage.signInOption.click();
+//    }
 
     @When("enter username")
     public void enter_username() {
@@ -45,15 +40,16 @@ public class US11_TC01_StepDefs {
         loginPage.password.sendKeys(ConfigReader.getProperty("doctor_password"));
     }
 
-    @When("click on Remember Me checkbox")
-    public void click_on_remember_me_checkbox() {
-        ReusableMethods.waitFor(2);
-        loginPage.rememberMe.click();
-    }
-    @Then("click on Sign In submit button")
-    public void click_on_sign_in_submit_button() {
-        loginPage.submitButton.click();
-    }
+//    @When("click on Remember Me checkbox")
+//    public void click_on_remember_me_checkbox() {
+//        ReusableMethods.waitFor(2);
+//        loginPage.rememberMe.click();
+//    }
+//    @Then("click on Sign In submit button")
+//    public void click_on_sign_in_submit_button() {
+//        loginPage.submitButton.click();
+//    }
+
     @Then("click on My Pages")
     public void click_on_my_pages() {
         ReusableMethods.waitFor(2);
