@@ -147,4 +147,79 @@ public class StaffPage {
     //  sdsdvv
     //etta-team02
 
+
+    // *********** US_23 WebElements ****************
+
+    @FindBy(id = "entity-menu")
+    public WebElement myPages;
+
+    @FindBy(xpath = "//span[.='Search Patient']")
+    public WebElement searchPatient;
+
+    @FindBy(xpath = "//input[@name='ssn']")
+    public WebElement searchPatientBySsn;
+
+    @FindBy(xpath = "//tbody//tr//td[2]")
+    public List<WebElement> staffSearchedSsnList;
+
+    @FindBy(xpath = "//span[.='Show Appointments']")
+    public WebElement showAppointmentsLink;
+
+    @FindBy(id = "appointment-heading")
+    public WebElement appointmentHeading;
+
+    @FindBy(xpath = "//span[.='Show Tests']")
+    public WebElement showTestsLink;
+
+    @FindBy(xpath = "//span[.='Tests']")
+    public WebElement testHeading;
+
+    @FindBy(xpath = "//span[.='View Results']")
+    public WebElement viewResultsLink;
+
+    @FindBy(xpath = "//span[.='Test Results']")
+    public WebElement testResultsHeading;
+
+    @FindBy(xpath = "//span[.='Edit']")
+    public WebElement editResultsLink;
+    @FindBy(xpath = "//span[.='Create or edit a Test Result']")
+    public WebElement editResultsHeading;
+
+    @FindBy(id = "c-test-result-result")
+    public WebElement resultInput;
+
+    @FindBy(xpath = "//button[@id='save-entity']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement confirmationMessage;
+
+    @FindBy(xpath = "//tbody//tr//td[3]")
+    public List<WebElement> updatedResultsList;
+
+
+    // ----------------
+
+
+    @FindBy(xpath = "//div[@class = 'Toastify__toast Toastify__toast--success toastify-toast']")
+    public WebElement staffUpdateTestResultSuccessMessage;
+
+    @FindBy(xpath = "//tbody//tr[1]/td[3]")
+    public WebElement staffUpdateTestResultUpdatedResult;
+
+    @FindBy(xpath = "//tbody//tr//td[2]")
+    public List <WebElement> staffUpdateTestResultUpdatedResultList;
+
+    @FindBy(xpath = "//tbody//tr//td[1]")
+    public List <WebElement> staffUpdateTestResultUpdatedIdList;
+
+    @FindBy(xpath = "//h2[@id='c-test-heading']")
+    public WebElement staffUpdateTestsPageHeader;
+
+    @FindBy(xpath = "//input[@name='description']")
+    public WebElement staffUpdateTestResultDescriptionInput;
+
+
+
+
 }

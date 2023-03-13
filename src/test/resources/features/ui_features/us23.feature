@@ -1,71 +1,69 @@
 @us_23
-Feature: Patient Login and Update Info
+Feature: Patient Test results by Staff (Laboratory technician)
     Background:
-    Given staff is on "https://medunna.com/" page
-    When click on user icon
-    And click on Sign In option
-    And enter "matt" in Username input
-    And enter "4004Hakan" in Password input
-    And click on Remember Me checkbox
-    And click on Sign In submit button
+      Given "Staff" goes to the homepage
+      When "Staff" clicks on user icon
+      And "Staff" clicks on sign in button
+      And "Staff" enters "staff_username" in username field
+      And "Staff" enters "staff_password" in password field
+      And "Staff" clicks on sign in submit button
 
 
-  @TC01_test_result_update
-  Scenario: TC_01 Patient Login
-    And staff clicks on MY PAGES icon
-    And clicks on Search Patient icon
-    And enters SSN into Patient "SSN" into SSN text box
-    And clicks on Show Appointments button
-    And clicks on Show Tests button
-    And clicks on View Results button
-    And clicks on edit button to edit
-    And sets new value in "results" input section
-    And clicks on Save button to save
-    Then verify that appointment is updated
+
+  @us23_tc_01
+    Scenario Outline: US23_TC_01
+    Then Staff clicks on MY PAGES link
+    And Staff clicks on Search Patients link
+    Then Staff verifies patients search input box is visible
+    Then Staff enters a valid SSN "<SSN>" into search input box
+    And Staff verifies the required ssn result is visible
     And close the application
 
-  @TC_02_test_result_details_visible
-  Scenario: Staff can see all sections of test result
-    When staff clicks on MY PAGES icon
-    And clicks on Search Patient icon
-    And enters SSN into Patient "SSN" into SSN text box
-    And clicks on Show Appointments button
-    And clicks on Show Tests button
-    And clicks on View Results button
-    And clicks on edit button to edit
-    And verifies ID section is visible
-    And verifies Date section is visible
-    And verifies Result section is visible
-    And verifies Description section is visible
-    And verifies createdDate section is visible
-    And verifies testItem section is visible
-    And verifies Test section is visible
-    And clicks on Save button to save
+    Examples: Ssn
+      | SSN         |
+      | 856-45-6789 |
+      | 321-12-1212 |
+      | 496-38-7027 |
+
+
+  @us23_tc_02
+  Scenario Outline: US23_TC_02
+    Then Staff clicks on MY PAGES link
+    And Staff clicks on Search Patients link
+    Then Staff verifies patients search input box is visible
+    Then Staff enters a invalid SSN "<SSN>" into search input box
+    And Staff verifies that result do not match
     And close the application
 
-  @TC_03_test_result_details_updated
-  Scenario: Staff can see all sections of test result
-    When staff clicks on MY PAGES icon
-    And clicks on Search Patient icon
-    And enters SSN into Patient "SSN" into SSN text box
-    And clicks on Show Appointments button
-    And clicks on Show Tests button
-    And clicks on View Results button
-    And clicks on edit button to edit
-    And sets new value in "ID" section
-    And verifies ID section is updated
-    And sets new value in "Date" input section
-    And verifies Date section is updated
-    And sets new value in "results" input section
-    And verifies Result section is updated
-    And sets new value in "Description" input section
-    And verifies Description section is updated
-    And sets new value in "createdDate" input section
-    And verifies createdDate section is updated
-    And sets new value in "testItem" input section
-    And verifies testItem section is updated
-    And sets new value in "Test" input section
-    And verifies Test section is updated
-    And clicks on Save button to save
+    Examples: Ssn
+      | SSN         |
+      | 879-12-2834 |
+      | 654-10-7890 |
+      | 908-12-5689 |
+
+
+    @us23_tc_03
+  Scenario Outline: US23_TC_03
+    Then Staff clicks on MY PAGES link
+    And Staff clicks on Search Patients link
+    Then Staff verifies patients search input box is visible
+    And Staff clicks on Show appointments button for the first patient
+    And Staff verify appointments page is visible
+    And Staff clicks on Show tests button
+    And Staff verify tests page is visible
+    And Staff clicks on test view result button
+    And Staff verify test results page is visible
+    And Staff clicks on test edit button
+    And Staff verify test result update page is visible
+    And Staff enters a number "<result>" into result input box
+    And Staff clicks on Save button
+    And Staff verify the test result is updated message comes up
+    And Staff verify the test result is updated
     And close the application
+
+    Examples: Result
+      | result |
+      | 25     |
+
+
 

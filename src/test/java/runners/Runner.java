@@ -16,12 +16,12 @@ import org.junit.runner.RunWith;
 //                "rerun:target/failedRerun.txt",
 //                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 //        },
-//        monochrome = false,     // makes the console grey
+        monochrome = false,     // makes the console grey
 
         features = "./src/test/resources/features",   // Path of Features folder
         glue = {"stepdefinitions" , "hooks"},
         dryRun = false,
-        tags = "@appointment_update"
+        tags = "@us23_tc_03"
 )
 public class Runner {
 

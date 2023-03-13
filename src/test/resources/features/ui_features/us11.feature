@@ -35,10 +35,3 @@ Feature: US_11
     And assert that doctor can see physician
     And assert that doctor can see patient
     And close the application
-
-
-
-  @aDataBaseTest
-  Scenario: US11_TC05_DB_Test
-    Given user connects to the Medunna database
-    When user sends query

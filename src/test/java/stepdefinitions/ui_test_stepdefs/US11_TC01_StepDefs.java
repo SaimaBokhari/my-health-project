@@ -52,7 +52,7 @@ public class US11_TC01_StepDefs {
 
     @Then("click on My Pages")
     public void click_on_my_pages() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(3);
         doctorsPage.myPages.click();
     }
     @Then("click on My Appointments")
