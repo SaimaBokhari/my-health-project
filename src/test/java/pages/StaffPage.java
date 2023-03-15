@@ -165,6 +165,9 @@ public class StaffPage {
     @FindBy(xpath = "//span[.='Show Appointments']")
     public WebElement showAppointmentsLink;
 
+    @FindBy(xpath = "//span[.='Show Appointments']")
+    public List<WebElement> showAppointmentsList;
+
     @FindBy(id = "appointment-heading")
     public WebElement appointmentHeading;
 
@@ -197,27 +200,23 @@ public class StaffPage {
     @FindBy(xpath = "//tbody//tr//td[3]")
     public List<WebElement> updatedResultsList;
 
+    @FindBy(id = "c-test-result-description")
+    public WebElement descriptionInput;
 
-    // ----------------
+    @FindBy(id = "c-test-result-id")
+    public WebElement idOfTest;
 
+    @FindBy(id = "c-test-result-date")
+    public WebElement dateOfTest;
 
-    @FindBy(xpath = "//div[@class = 'Toastify__toast Toastify__toast--success toastify-toast']")
-    public WebElement staffUpdateTestResultSuccessMessage;
+    @FindBy(id = "c-test-result-createdDate")
+    public WebElement createdDateOfTest;
 
-    @FindBy(xpath = "//tbody//tr[1]/td[3]")
-    public WebElement staffUpdateTestResultUpdatedResult;
+    @FindBy(id = "c-test-result-cTestItem")
+    public WebElement testItemOfTest;
 
-    @FindBy(xpath = "//tbody//tr//td[2]")
-    public List <WebElement> staffUpdateTestResultUpdatedResultList;
-
-    @FindBy(xpath = "//tbody//tr//td[1]")
-    public List <WebElement> staffUpdateTestResultUpdatedIdList;
-
-    @FindBy(xpath = "//h2[@id='c-test-heading']")
-    public WebElement staffUpdateTestsPageHeader;
-
-    @FindBy(xpath = "//input[@name='description']")
-    public WebElement staffUpdateTestResultDescriptionInput;
+    @FindBy(id = "c-test-result-cTest")
+    public WebElement testIdOfTest;
 
 
 
