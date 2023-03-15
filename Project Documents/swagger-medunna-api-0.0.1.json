@@ -1,0 +1,4809 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Medunna API documentation",
+    "version" : "0.0.1",
+    "title" : "Medunna API",
+    "contact" : { },
+    "license" : {
+      "name" : "unlicensed"
+    }
+  },
+  "host" : "https://medunna.com",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "account-resource",
+    "description" : "Account Resource"
+  }, {
+    "name" : "appointment-resource",
+    "description" : "Appointment Resource"
+  }, {
+    "name" : "bill-resource",
+    "description" : "Bill Resource"
+  }, {
+    "name" : "c-message-resource",
+    "description" : "C Message Resource"
+  }, {
+    "name" : "c-state-resource",
+    "description" : "C State Resource"
+  }, {
+    "name" : "c-test-resource",
+    "description" : "C Test Resource"
+  }, {
+    "name" : "c-test-result-resource",
+    "description" : "C Test Result Resource"
+  }, {
+    "name" : "c-test-ıtem-resource",
+    "description" : "C Test Item Resource"
+  }, {
+    "name" : "country-resource",
+    "description" : "Country Resource"
+  }, {
+    "name" : "patient-resource",
+    "description" : "Patient Resource"
+  }, {
+    "name" : "physician-resource",
+    "description" : "Physician Resource"
+  }, {
+    "name" : "room-resource",
+    "description" : "Room Resource"
+  }, {
+    "name" : "staff-resource",
+    "description" : "Staff Resource"
+  }, {
+    "name" : "user-jwt-controller",
+    "description" : "User JWT Controller"
+  }, {
+    "name" : "user-resource",
+    "description" : "User Resource"
+  }, {
+    "name" : "ın-patient-resource",
+    "description" : "In Patient Resource"
+  } ],
+  "paths" : {
+    "/api/account" : {
+      "get" : {
+        "tags" : [ "account-resource" ],
+        "summary" : "getAccount",
+        "operationId" : "getAccountUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserDTO"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "account-resource" ],
+        "summary" : "saveAccount",
+        "operationId" : "saveAccountUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "userDTO",
+          "description" : "userDTO",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UserDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/account/change-password" : {
+      "post" : {
+        "tags" : [ "account-resource" ],
+        "summary" : "changePassword",
+        "operationId" : "changePasswordUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "passwordChangeDto",
+          "description" : "passwordChangeDto",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PasswordChangeDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/account/reset-password/finish" : {
+      "post" : {
+        "tags" : [ "account-resource" ],
+        "summary" : "finishPasswordReset",
+        "operationId" : "finishPasswordResetUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "keyAndPassword",
+          "description" : "keyAndPassword",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/KeyAndPasswordVM"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/account/reset-password/init" : {
+      "post" : {
+        "tags" : [ "account-resource" ],
+        "summary" : "requestPasswordReset",
+        "operationId" : "requestPasswordResetUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "mail",
+          "description" : "mail",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/activate" : {
+      "get" : {
+        "tags" : [ "account-resource" ],
+        "summary" : "activateAccount",
+        "operationId" : "activateAccountUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "key",
+          "in" : "query",
+          "description" : "key",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/appointments" : {
+      "get" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "getAllAppointments",
+        "operationId" : "getAllAppointmentsUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "filter",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Appointment"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "createAppointment",
+        "operationId" : "createAppointmentUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "appointment",
+          "description" : "appointment",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Appointment"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Appointment"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "updateAppointment",
+        "operationId" : "updateAppointmentUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "appointment",
+          "description" : "appointment",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Appointment"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Appointment"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/appointments/bill/{id}" : {
+      "get" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "createBillByAppointmentId",
+        "operationId" : "createBillByAppointmentIdUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Bill"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/appointments/bydateandId" : {
+      "get" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "getAppointmentByDatesPhysicianId",
+        "operationId" : "getAppointmentByDatesPhysicianIdUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "fromDate",
+          "in" : "query",
+          "description" : "fromDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "toDate",
+          "in" : "query",
+          "description" : "toDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "userId",
+          "in" : "query",
+          "description" : "userId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Appointment"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/appointments/patient/bydateandId" : {
+      "get" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "getAppointmentByDatesPatientId",
+        "operationId" : "getAppointmentByDatesPatientIdUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "fromDate",
+          "in" : "query",
+          "description" : "fromDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "toDate",
+          "in" : "query",
+          "description" : "toDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "userId",
+          "in" : "query",
+          "description" : "userId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Appointment"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/appointments/patient/{id}" : {
+      "get" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "getAppointmentByPatient",
+        "operationId" : "getAppointmentByPatientUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Appointment"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/appointments/payment/{id}" : {
+      "get" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "getPaymentInfoById",
+        "operationId" : "getPaymentInfoByIdUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/PaymentInfo"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/appointments/request" : {
+      "post" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "createAppointmentRequest",
+        "operationId" : "createAppointmentRequestUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "appointmentRequest",
+          "description" : "appointmentRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AppointmentRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Appointment"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/appointments/staff/bydate" : {
+      "get" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "getAppointmentByDate",
+        "operationId" : "getAppointmentByDateUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "fromDate",
+          "in" : "query",
+          "description" : "fromDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "toDate",
+          "in" : "query",
+          "description" : "toDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Appointment"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/appointments/{id}" : {
+      "get" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "getAppointment",
+        "operationId" : "getAppointmentUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Appointment"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "appointment-resource" ],
+        "summary" : "deleteAppointment",
+        "operationId" : "deleteAppointmentUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/authenticate" : {
+      "get" : {
+        "tags" : [ "account-resource" ],
+        "summary" : "isAuthenticated",
+        "operationId" : "isAuthenticatedUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "user-jwt-controller" ],
+        "summary" : "authorize",
+        "operationId" : "authorizeUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "loginVM",
+          "description" : "loginVM",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/LoginVM"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/JWTToken"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/bills" : {
+      "get" : {
+        "tags" : [ "bill-resource" ],
+        "summary" : "getAllBills",
+        "operationId" : "getAllBillsUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Bill"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "bill-resource" ],
+        "summary" : "createBill",
+        "operationId" : "createBillUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "bill",
+          "description" : "bill",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Bill"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Bill"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "bill-resource" ],
+        "summary" : "updateBill",
+        "operationId" : "updateBillUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "bill",
+          "description" : "bill",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Bill"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Bill"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/bills/appointment/{id}" : {
+      "get" : {
+        "tags" : [ "bill-resource" ],
+        "summary" : "getBillByAppointmentId",
+        "operationId" : "getBillByAppointmentIdUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Bill"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/bills/{id}" : {
+      "get" : {
+        "tags" : [ "bill-resource" ],
+        "summary" : "getBill",
+        "operationId" : "getBillUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Bill"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "bill-resource" ],
+        "summary" : "deleteBill",
+        "operationId" : "deleteBillUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-messages" : {
+      "get" : {
+        "tags" : [ "c-message-resource" ],
+        "summary" : "getAllCMessages",
+        "operationId" : "getAllCMessagesUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CMessage"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "c-message-resource" ],
+        "summary" : "createCMessage",
+        "operationId" : "createCMessageUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cMessage",
+          "description" : "cMessage",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CMessage"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CMessage"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "c-message-resource" ],
+        "summary" : "updateCMessage",
+        "operationId" : "updateCMessageUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cMessage",
+          "description" : "cMessage",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CMessage"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CMessage"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-messages/request" : {
+      "post" : {
+        "tags" : [ "c-message-resource" ],
+        "summary" : "requestCMessage",
+        "operationId" : "requestCMessageUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cMessage",
+          "description" : "cMessage",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CMessage"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CMessage"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-messages/{id}" : {
+      "get" : {
+        "tags" : [ "c-message-resource" ],
+        "summary" : "getCMessage",
+        "operationId" : "getCMessageUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CMessage"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "c-message-resource" ],
+        "summary" : "deleteCMessage",
+        "operationId" : "deleteCMessageUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-states" : {
+      "get" : {
+        "tags" : [ "c-state-resource" ],
+        "summary" : "getAllCStates",
+        "operationId" : "getAllCStatesUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CState"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "c-state-resource" ],
+        "summary" : "createCState",
+        "operationId" : "createCStateUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cState",
+          "description" : "cState",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CState"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CState"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "c-state-resource" ],
+        "summary" : "updateCState",
+        "operationId" : "updateCStateUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cState",
+          "description" : "cState",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CState"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CState"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-states/country/{id}" : {
+      "get" : {
+        "tags" : [ "c-state-resource" ],
+        "summary" : "getStateByCountryId",
+        "operationId" : "getStateByCountryIdUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CState"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-states/initial" : {
+      "post" : {
+        "tags" : [ "c-state-resource" ],
+        "summary" : "createInitialData",
+        "operationId" : "createInitialDataUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cStateList",
+          "description" : "cStateList",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/CState"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CState"
+              }
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-states/{id}" : {
+      "get" : {
+        "tags" : [ "c-state-resource" ],
+        "summary" : "getCState",
+        "operationId" : "getCStateUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CState"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "c-state-resource" ],
+        "summary" : "deleteCState",
+        "operationId" : "deleteCStateUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-test-items" : {
+      "get" : {
+        "tags" : [ "c-test-ıtem-resource" ],
+        "summary" : "getAllCTestItems",
+        "operationId" : "getAllCTestItemsUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CTestItem"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "c-test-ıtem-resource" ],
+        "summary" : "createCTestItem",
+        "operationId" : "createCTestItemUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cTestItem",
+          "description" : "cTestItem",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CTestItem"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTestItem"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "c-test-ıtem-resource" ],
+        "summary" : "updateCTestItem",
+        "operationId" : "updateCTestItemUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cTestItem",
+          "description" : "cTestItem",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CTestItem"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTestItem"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-test-items/all" : {
+      "get" : {
+        "tags" : [ "c-test-ıtem-resource" ],
+        "summary" : "getAllCTestItemsNoPaging",
+        "operationId" : "getAllCTestItemsNoPagingUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CTestItem"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-test-items/{id}" : {
+      "get" : {
+        "tags" : [ "c-test-ıtem-resource" ],
+        "summary" : "getCTestItem",
+        "operationId" : "getCTestItemUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTestItem"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "c-test-ıtem-resource" ],
+        "summary" : "deleteCTestItem",
+        "operationId" : "deleteCTestItemUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-test-results" : {
+      "get" : {
+        "tags" : [ "c-test-result-resource" ],
+        "summary" : "getAllCTestResults",
+        "operationId" : "getAllCTestResultsUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CTestResult"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "c-test-result-resource" ],
+        "summary" : "createCTestResult",
+        "operationId" : "createCTestResultUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cTestResult",
+          "description" : "cTestResult",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CTestResult"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTestResult"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "c-test-result-resource" ],
+        "summary" : "updateCTestResult",
+        "operationId" : "updateCTestResultUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cTestResult",
+          "description" : "cTestResult",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CTestResult"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTestResult"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-test-results/c-test/{id}" : {
+      "get" : {
+        "tags" : [ "c-test-result-resource" ],
+        "summary" : "getCTestResultsByTestId",
+        "operationId" : "getCTestResultsByTestIdUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/TestResultDTO"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-test-results/{id}" : {
+      "get" : {
+        "tags" : [ "c-test-result-resource" ],
+        "summary" : "getCTestResult",
+        "operationId" : "getCTestResultUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTestResult"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "c-test-result-resource" ],
+        "summary" : "deleteCTestResult",
+        "operationId" : "deleteCTestResultUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-tests" : {
+      "get" : {
+        "tags" : [ "c-test-resource" ],
+        "summary" : "getAllCTests",
+        "operationId" : "getAllCTestsUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CTest"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "c-test-resource" ],
+        "summary" : "createCTest",
+        "operationId" : "createCTestUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cTest",
+          "description" : "cTest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CTest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTest"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "c-test-resource" ],
+        "summary" : "updateCTest",
+        "operationId" : "updateCTestUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cTest",
+          "description" : "cTest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CTest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTest"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-tests/appointment/{id}" : {
+      "get" : {
+        "tags" : [ "c-test-resource" ],
+        "summary" : "getCTestByAppointmentId",
+        "operationId" : "getCTestByAppointmentIdUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CTest"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-tests/request" : {
+      "post" : {
+        "tags" : [ "c-test-resource" ],
+        "summary" : "requestTest",
+        "operationId" : "requestTestUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "testRequest",
+          "description" : "testRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/TestRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTest"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/c-tests/{id}" : {
+      "get" : {
+        "tags" : [ "c-test-resource" ],
+        "summary" : "getCTest",
+        "operationId" : "getCTestUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CTest"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "c-test-resource" ],
+        "summary" : "deleteCTest",
+        "operationId" : "deleteCTestUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/countries" : {
+      "get" : {
+        "tags" : [ "country-resource" ],
+        "summary" : "getAllCountries",
+        "operationId" : "getAllCountriesUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Country"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "country-resource" ],
+        "summary" : "createCountry",
+        "operationId" : "createCountryUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "country",
+          "description" : "country",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Country"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Country"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "country-resource" ],
+        "summary" : "updateCountry",
+        "operationId" : "updateCountryUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "country",
+          "description" : "country",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Country"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Country"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/countries/initial" : {
+      "post" : {
+        "tags" : [ "country-resource" ],
+        "summary" : "createInitData",
+        "operationId" : "createInitDataUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "country",
+          "description" : "country",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Country"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Country"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/countries/{id}" : {
+      "get" : {
+        "tags" : [ "country-resource" ],
+        "summary" : "getCountry",
+        "operationId" : "getCountryUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Country"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "country-resource" ],
+        "summary" : "deleteCountry",
+        "operationId" : "deleteCountryUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/in-patients" : {
+      "get" : {
+        "tags" : [ "ın-patient-resource" ],
+        "summary" : "getAllInPatients",
+        "operationId" : "getAllInPatientsUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/InPatient"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "ın-patient-resource" ],
+        "summary" : "createInPatient",
+        "operationId" : "createInPatientUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "inPatient",
+          "description" : "inPatient",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/InPatient"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/InPatient"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "ın-patient-resource" ],
+        "summary" : "updateInPatient",
+        "operationId" : "updateInPatientUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "inPatient",
+          "description" : "inPatient",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/InPatient"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/InPatient"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/in-patients/bydate" : {
+      "get" : {
+        "tags" : [ "ın-patient-resource" ],
+        "summary" : "getInPatientByDates",
+        "operationId" : "getInPatientByDatesUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "fromDate",
+          "in" : "query",
+          "description" : "fromDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "toDate",
+          "in" : "query",
+          "description" : "toDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/InPatient"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/in-patients/bydateanduser" : {
+      "get" : {
+        "tags" : [ "ın-patient-resource" ],
+        "summary" : "getInPatientByDatesAndUser",
+        "operationId" : "getInPatientByDatesAndUserUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "fromDate",
+          "in" : "query",
+          "description" : "fromDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "toDate",
+          "in" : "query",
+          "description" : "toDate",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "userId",
+          "in" : "query",
+          "description" : "userId",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/InPatient"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/in-patients/request" : {
+      "post" : {
+        "tags" : [ "ın-patient-resource" ],
+        "summary" : "requestInPatient",
+        "operationId" : "requestInPatientUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "inPatientRequest",
+          "description" : "inPatientRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/InPatientRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/InPatient"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/in-patients/{id}" : {
+      "get" : {
+        "tags" : [ "ın-patient-resource" ],
+        "summary" : "getInPatient",
+        "operationId" : "getInPatientUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/InPatient"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "ın-patient-resource" ],
+        "summary" : "deleteInPatient",
+        "operationId" : "deleteInPatientUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/patient/physician" : {
+      "get" : {
+        "tags" : [ "patient-resource" ],
+        "summary" : "getCTestResultsByTestId",
+        "operationId" : "getCTestResultsByTestIdUsingGET_1",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Patient"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/patients" : {
+      "get" : {
+        "tags" : [ "patient-resource" ],
+        "summary" : "getAllPatients",
+        "operationId" : "getAllPatientsUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Patient"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "patient-resource" ],
+        "summary" : "createPatient",
+        "operationId" : "createPatientUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "patient",
+          "description" : "patient",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Patient"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Patient"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "patient-resource" ],
+        "summary" : "updatePatient",
+        "operationId" : "updatePatientUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "patient",
+          "description" : "patient",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Patient"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Patient"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/patients/search" : {
+      "get" : {
+        "tags" : [ "patient-resource" ],
+        "summary" : "searchPatient",
+        "operationId" : "searchPatientUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        }, {
+          "name" : "ssn",
+          "in" : "query",
+          "description" : "ssn",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Patient"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/patients/{id}" : {
+      "get" : {
+        "tags" : [ "patient-resource" ],
+        "summary" : "getPatient",
+        "operationId" : "getPatientUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Patient"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "patient-resource" ],
+        "summary" : "deletePatient",
+        "operationId" : "deletePatientUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/physicians" : {
+      "get" : {
+        "tags" : [ "physician-resource" ],
+        "summary" : "getAllPhysicians",
+        "operationId" : "getAllPhysiciansUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Physician"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "physician-resource" ],
+        "summary" : "createPhysician",
+        "operationId" : "createPhysicianUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "physician",
+          "description" : "physician",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Physician"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Physician"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "physician-resource" ],
+        "summary" : "updatePhysician",
+        "operationId" : "updatePhysicianUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "physician",
+          "description" : "physician",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Physician"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Physician"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/physicians/{id}" : {
+      "get" : {
+        "tags" : [ "physician-resource" ],
+        "summary" : "getPhysician",
+        "operationId" : "getPhysicianUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Physician"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "physician-resource" ],
+        "summary" : "deletePhysician",
+        "operationId" : "deletePhysicianUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/register" : {
+      "post" : {
+        "tags" : [ "account-resource" ],
+        "summary" : "registerAccount",
+        "operationId" : "registerAccountUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "managedUserVM",
+          "description" : "managedUserVM",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ManagedUserVM"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/rooms" : {
+      "get" : {
+        "tags" : [ "room-resource" ],
+        "summary" : "getAllRooms",
+        "operationId" : "getAllRoomsUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Room"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "room-resource" ],
+        "summary" : "createRoom",
+        "operationId" : "createRoomUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "room",
+          "description" : "room",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Room"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Room"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "room-resource" ],
+        "summary" : "updateRoom",
+        "operationId" : "updateRoomUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "room",
+          "description" : "room",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Room"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Room"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/rooms/{id}" : {
+      "get" : {
+        "tags" : [ "room-resource" ],
+        "summary" : "getRoom",
+        "operationId" : "getRoomUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Room"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "room-resource" ],
+        "summary" : "deleteRoom",
+        "operationId" : "deleteRoomUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/staff" : {
+      "get" : {
+        "tags" : [ "staff-resource" ],
+        "summary" : "getAllStaff",
+        "operationId" : "getAllStaffUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Staff"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "staff-resource" ],
+        "summary" : "createStaff",
+        "operationId" : "createStaffUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "staff",
+          "description" : "staff",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Staff"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Staff"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "staff-resource" ],
+        "summary" : "updateStaff",
+        "operationId" : "updateStaffUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "staff",
+          "description" : "staff",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Staff"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Staff"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/staff/{id}" : {
+      "get" : {
+        "tags" : [ "staff-resource" ],
+        "summary" : "getStaff",
+        "operationId" : "getStaffUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Staff"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "staff-resource" ],
+        "summary" : "deleteStaff",
+        "operationId" : "deleteStaffUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/user" : {
+      "get" : {
+        "tags" : [ "user-resource" ],
+        "summary" : "getUserBySSN",
+        "operationId" : "getUserBySSNUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "ssn",
+          "in" : "query",
+          "description" : "ssn",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserDTO"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/users" : {
+      "get" : {
+        "tags" : [ "user-resource" ],
+        "summary" : "getAllUsers",
+        "operationId" : "getAllUsersUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number of the requested page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Size of a page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/UserDTO"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "user-resource" ],
+        "summary" : "createUser",
+        "operationId" : "createUserUsingPOST",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "userDTO",
+          "description" : "userDTO",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UserDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "user-resource" ],
+        "summary" : "updateUser",
+        "operationId" : "updateUserUsingPUT",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "userDTO",
+          "description" : "userDTO",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UserDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserDTO"
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/users/authorities" : {
+      "get" : {
+        "tags" : [ "user-resource" ],
+        "summary" : "getAuthorities",
+        "operationId" : "getAuthoritiesUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/users/notpatient" : {
+      "get" : {
+        "tags" : [ "user-resource" ],
+        "summary" : "getAllUsersButNotPatient",
+        "operationId" : "getAllUsersButNotPatientUsingGET",
+        "produces" : [ "*/*" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/User"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/users/{login:^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$}" : {
+      "get" : {
+        "tags" : [ "user-resource" ],
+        "summary" : "getUser",
+        "operationId" : "getUserUsingGET",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "login",
+          "in" : "path",
+          "description" : "login",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/UserDTO"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "deprecated" : false
+      },
+      "delete" : {
+        "tags" : [ "user-resource" ],
+        "summary" : "deleteUser",
+        "operationId" : "deleteUserUsingDELETE",
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "name" : "login",
+          "in" : "path",
+          "description" : "login",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "204" : {
+            "description" : "No Content"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "deprecated" : false
+      }
+    }
+  },
+  "definitions" : {
+    "Appointment" : {
+      "type" : "object",
+      "required" : [ "endDate", "startDate", "status" ],
+      "properties" : {
+        "anamnesis" : {
+          "type" : "string"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ctests" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CTest"
+          }
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "diagnosis" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "patient" : {
+          "$ref" : "#/definitions/Patient"
+        },
+        "physician" : {
+          "$ref" : "#/definitions/Physician"
+        },
+        "prescription" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "status" : {
+          "type" : "string",
+          "enum" : [ "UNAPPROVED", "COMPLETED", "PENDING", "CANCELLED" ]
+        },
+        "treatment" : {
+          "type" : "string"
+        }
+      },
+      "title" : "Appointment"
+    },
+    "AppointmentRequest" : {
+      "type" : "object",
+      "properties" : {
+        "appoSpeciality" : {
+          "type" : "string"
+        },
+        "birthDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "gender" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "snumber" : {
+          "type" : "string"
+        },
+        "ssn" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        }
+      },
+      "title" : "AppointmentRequest"
+    },
+    "Bill" : {
+      "type" : "object",
+      "required" : [ "billDate", "billName", "date", "ssn", "totalCost" ],
+      "properties" : {
+        "appointment" : {
+          "$ref" : "#/definitions/Appointment"
+        },
+        "billDate" : {
+          "type" : "string"
+        },
+        "billName" : {
+          "type" : "string"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "paymentMethod" : {
+          "type" : "string",
+          "enum" : [ "CASH", "CREDIT_CARD", "CHEQUE" ]
+        },
+        "ssn" : {
+          "type" : "string"
+        },
+        "totalCost" : {
+          "type" : "number",
+          "minimum" : 0,
+          "exclusiveMinimum" : false
+        }
+      },
+      "title" : "Bill"
+    },
+    "CMessage" : {
+      "type" : "object",
+      "required" : [ "email", "name", "subject" ],
+      "properties" : {
+        "email" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "message" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 250
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "subject" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 150
+        }
+      },
+      "title" : "CMessage"
+    },
+    "CState" : {
+      "type" : "object",
+      "required" : [ "country" ],
+      "properties" : {
+        "country" : {
+          "$ref" : "#/definitions/Country"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      },
+      "title" : "CState"
+    },
+    "CTest" : {
+      "type" : "object",
+      "required" : [ "date" ],
+      "properties" : {
+        "appointment" : {
+          "$ref" : "#/definitions/Appointment"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ctestResults" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CTestResult"
+          }
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      },
+      "title" : "CTest"
+    },
+    "CTestItem" : {
+      "type" : "object",
+      "required" : [ "price" ],
+      "properties" : {
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "defaultValMax" : {
+          "type" : "string"
+        },
+        "defaultValMin" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "price" : {
+          "type" : "number",
+          "minimum" : 0,
+          "exclusiveMinimum" : false
+        }
+      },
+      "title" : "CTestItem"
+    },
+    "CTestResult" : {
+      "type" : "object",
+      "required" : [ "date" ],
+      "properties" : {
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ctest" : {
+          "$ref" : "#/definitions/CTest"
+        },
+        "ctestItem" : {
+          "$ref" : "#/definitions/CTestItem"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "result" : {
+          "type" : "string"
+        }
+      },
+      "title" : "CTestResult"
+    },
+    "Country" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      },
+      "title" : "Country"
+    },
+    "InPatient" : {
+      "type" : "object",
+      "required" : [ "startDate", "status" ],
+      "properties" : {
+        "appointment" : {
+          "$ref" : "#/definitions/Appointment"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "patient" : {
+          "$ref" : "#/definitions/Patient"
+        },
+        "room" : {
+          "$ref" : "#/definitions/Room"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "status" : {
+          "type" : "string",
+          "enum" : [ "UNAPPROVED", "STAYING", "DISCHARGED", "CANCELLED" ]
+        }
+      },
+      "title" : "InPatient"
+    },
+    "InPatientRequest" : {
+      "type" : "object",
+      "properties" : {
+        "appointmentId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "patientId" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      },
+      "title" : "InPatientRequest"
+    },
+    "JWTToken" : {
+      "type" : "object",
+      "properties" : {
+        "id_token" : {
+          "type" : "string"
+        }
+      },
+      "title" : "JWTToken"
+    },
+    "KeyAndPasswordVM" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "type" : "string"
+        },
+        "newPassword" : {
+          "type" : "string"
+        }
+      },
+      "title" : "KeyAndPasswordVM"
+    },
+    "LoginVM" : {
+      "type" : "object",
+      "required" : [ "password", "username" ],
+      "properties" : {
+        "password" : {
+          "type" : "string",
+          "minLength" : 4,
+          "maxLength" : 100
+        },
+        "rememberMe" : {
+          "type" : "boolean"
+        },
+        "username" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 50
+        }
+      },
+      "title" : "LoginVM"
+    },
+    "ManagedUserVM" : {
+      "type" : "object",
+      "properties" : {
+        "activated" : {
+          "type" : "boolean"
+        },
+        "authorities" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "email" : {
+          "type" : "string",
+          "minLength" : 5,
+          "maxLength" : 254
+        },
+        "firstName" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "imageUrl" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 256
+        },
+        "langKey" : {
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 10
+        },
+        "lastModifiedBy" : {
+          "type" : "string"
+        },
+        "lastModifiedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lastName" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50
+        },
+        "login" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 50,
+          "pattern" : "^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$"
+        },
+        "password" : {
+          "type" : "string",
+          "minLength" : 4,
+          "maxLength" : 100
+        },
+        "ssn" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50
+        }
+      },
+      "title" : "ManagedUserVM"
+    },
+    "PasswordChangeDTO" : {
+      "type" : "object",
+      "properties" : {
+        "currentPassword" : {
+          "type" : "string"
+        },
+        "newPassword" : {
+          "type" : "string"
+        }
+      },
+      "title" : "PasswordChangeDTO"
+    },
+    "Patient" : {
+      "type" : "object",
+      "required" : [ "firstName", "lastName", "phone", "ssn", "user" ],
+      "properties" : {
+        "adress" : {
+          "type" : "string"
+        },
+        "appointments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Appointment"
+          }
+        },
+        "birthDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "bloodGroup" : {
+          "type" : "string",
+          "enum" : [ "Apositive", "Anegative", "Bpositive", "Bnegative", "Opositive", "Onegative", "ABpositive", "ABnegative" ]
+        },
+        "country" : {
+          "$ref" : "#/definitions/Country"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "cstate" : {
+          "$ref" : "#/definitions/CState"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string",
+          "minLength" : 5,
+          "maxLength" : 254
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "gender" : {
+          "type" : "string",
+          "enum" : [ "MALE", "FEMALE", "OTHER" ]
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "inPatients" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/InPatient"
+          }
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "ssn" : {
+          "type" : "string",
+          "pattern" : "^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$"
+        },
+        "user" : {
+          "$ref" : "#/definitions/User"
+        }
+      },
+      "title" : "Patient"
+    },
+    "PaymentInfo" : {
+      "type" : "object",
+      "properties" : {
+        "appointment" : {
+          "$ref" : "#/definitions/Appointment"
+        },
+        "appointmentCost" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "billId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "lengthOfStay" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "patient" : {
+          "$ref" : "#/definitions/Patient"
+        },
+        "room" : {
+          "$ref" : "#/definitions/Room"
+        },
+        "testItems" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CTestItem"
+          }
+        },
+        "totalCost" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      },
+      "title" : "PaymentInfo"
+    },
+    "Physician" : {
+      "type" : "object",
+      "required" : [ "examFee", "firstName", "lastName", "phone", "ssn", "user" ],
+      "properties" : {
+        "adress" : {
+          "type" : "string"
+        },
+        "appointments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Appointment"
+          }
+        },
+        "birthDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "bloodGroup" : {
+          "type" : "string",
+          "enum" : [ "Apositive", "Anegative", "Bpositive", "Bnegative", "Opositive", "Onegative", "ABpositive", "ABnegative" ]
+        },
+        "country" : {
+          "$ref" : "#/definitions/Country"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "cstate" : {
+          "$ref" : "#/definitions/CState"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "examFee" : {
+          "type" : "number"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "gender" : {
+          "type" : "string",
+          "enum" : [ "MALE", "FEMALE", "OTHER" ]
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "image" : {
+          "type" : "string",
+          "format" : "byte"
+        },
+        "imageContentType" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "speciality" : {
+          "type" : "string",
+          "enum" : [ "ALLERGY_IMMUNOLOGY", "ANESTHESIOLOGY", "DERMATOLOGY", "DIAGNOSTIC_RADIOLOGY", "EMERGENCY_MEDICINE", "FAMILY_MEDICINE", "INTERNAL_MEDICINE", "MEDICAL_GENETICS", "NEUROLOGY", "NUCLEAR_MEDICINE", "OBSTETRICS_GYNECOLOGY", "OPHTHALMOLOGY", "PATHOLOGY", "PEDIATRICS", "PHYSICALMEDICINE_REHABILITATION", "PREVENTIVE_MEDICINE", "PSYCHIATRY", "RADIATION_ONCOLOGY", "SURGERY", "UROLOGY" ]
+        },
+        "ssn" : {
+          "type" : "string",
+          "pattern" : "^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$"
+        },
+        "user" : {
+          "$ref" : "#/definitions/User"
+        }
+      },
+      "title" : "Physician"
+    },
+    "Room" : {
+      "type" : "object",
+      "required" : [ "price", "roomNumber", "roomType", "status" ],
+      "properties" : {
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "price" : {
+          "type" : "number",
+          "minimum" : 0,
+          "exclusiveMinimum" : false
+        },
+        "roomNumber" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "roomType" : {
+          "type" : "string",
+          "enum" : [ "TWIN", "DELUXE", "PREMIUM_DELUXE", "SUITE", "DAYCARE" ]
+        },
+        "status" : {
+          "type" : "boolean"
+        }
+      },
+      "title" : "Room"
+    },
+    "Staff" : {
+      "type" : "object",
+      "required" : [ "firstName", "lastName", "phone", "ssn", "user" ],
+      "properties" : {
+        "adress" : {
+          "type" : "string"
+        },
+        "birthDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "bloodGroup" : {
+          "type" : "string",
+          "enum" : [ "Apositive", "Anegative", "Bpositive", "Bnegative", "Opositive", "Onegative", "ABpositive", "ABnegative" ]
+        },
+        "country" : {
+          "$ref" : "#/definitions/Country"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "cstate" : {
+          "$ref" : "#/definitions/CState"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "gender" : {
+          "type" : "string",
+          "enum" : [ "MALE", "FEMALE", "OTHER" ]
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "ssn" : {
+          "type" : "string",
+          "pattern" : "^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$"
+        },
+        "user" : {
+          "$ref" : "#/definitions/User"
+        }
+      },
+      "title" : "Staff"
+    },
+    "TestRequest" : {
+      "type" : "object",
+      "properties" : {
+        "appointmentId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "testIds" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "title" : "TestRequest"
+    },
+    "TestResultDTO" : {
+      "type" : "object",
+      "properties" : {
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "maxValue" : {
+          "type" : "string"
+        },
+        "minValue" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "price" : {
+          "type" : "number"
+        },
+        "result" : {
+          "type" : "string"
+        },
+        "testId" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      },
+      "title" : "TestResultDTO"
+    },
+    "User" : {
+      "type" : "object",
+      "required" : [ "activated", "login", "ssn" ],
+      "properties" : {
+        "activated" : {
+          "type" : "boolean"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "email" : {
+          "type" : "string",
+          "minLength" : 5,
+          "maxLength" : 254
+        },
+        "firstName" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "imageUrl" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 256
+        },
+        "langKey" : {
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 10
+        },
+        "lastName" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50
+        },
+        "login" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 50,
+          "pattern" : "^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$"
+        },
+        "resetDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ssn" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50,
+          "pattern" : "^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$"
+        }
+      },
+      "title" : "User"
+    },
+    "UserDTO" : {
+      "type" : "object",
+      "properties" : {
+        "activated" : {
+          "type" : "boolean"
+        },
+        "authorities" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "email" : {
+          "type" : "string",
+          "minLength" : 5,
+          "maxLength" : 254
+        },
+        "firstName" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "imageUrl" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 256
+        },
+        "langKey" : {
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 10
+        },
+        "lastModifiedBy" : {
+          "type" : "string"
+        },
+        "lastModifiedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lastName" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50
+        },
+        "login" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 50,
+          "pattern" : "^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$"
+        },
+        "ssn" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50
+        }
+      },
+      "title" : "UserDTO"
+    }
+  }
+}
